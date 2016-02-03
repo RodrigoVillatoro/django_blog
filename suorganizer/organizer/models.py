@@ -7,7 +7,7 @@ class Tag(models.Model):
                             help_text='Label for URL.')
 
     def __str__(self):
-        return self.name
+        return self.name.title()
 
     class Meta:
         ordering = ['name']

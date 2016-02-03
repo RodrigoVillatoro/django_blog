@@ -18,7 +18,7 @@ class Post(models.Model):
 
     def __str__(self):
         return '{} on {}'.format(
-            self.title, self.pub_date.strfime('Y%-%m-%d')
+            self.title, self.pub_date.strftime('%Y-%m-%d')
         )
 
     class Meta:
