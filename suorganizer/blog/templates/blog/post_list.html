@@ -2,7 +2,6 @@
 
 {% block title %}
   {{ block.super }} - Blog Posts
-  {% endblock %}
 {% endblock %}
 
 {% block content %}
@@ -13,7 +12,7 @@
           <a href="">{{ post.title|title }}</a>
         </h2>
         <p>
-          Written on: <time datetime="{{ post.pub_date|date:'Y-m-d' }}">{{ post.pub_date|date:'l, F js, Y' }}</time>
+          Written on: <time datetime="{{ post.pub_date|date:'Y-m-d' }}">{{ post.pub_date|date:'l, F jS, Y' }}</time>
         </p>
       </header>
       <p>
