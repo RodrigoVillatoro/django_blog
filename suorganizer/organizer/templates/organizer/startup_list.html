@@ -9,7 +9,8 @@
   <ul>
     {% for startup in startup_list %}
       <li>
-        <a href="">{{ startup.name }}</a>
+        <a href="{{ startup.get_absolute_url }}">
+          {{ startup.name }}</a>
       </li>
     {% empty %}
       <li><em>No Startups Available</em></li>
