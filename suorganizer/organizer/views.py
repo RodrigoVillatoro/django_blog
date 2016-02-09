@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, render
 
 
+from .forms import TagForm
 from .models import Startup, Tag
 
 
@@ -26,3 +27,8 @@ def tag_detail(request, slug):
     tag = get_object_or_404(Tag, slug__iexact=slug)
     return render(
         request, 'organizer/tag_detail.html', {'tag': tag})
+
+
+def tag_create(request):
+    form = TagForm()
+    return render(request, 'organizer/tag_form.html', {'form': form})
