@@ -24,6 +24,13 @@ class Post(models.Model):
             'slug': self.slug,
         })
 
+    def get_update_url(self):
+        return reverse('blog_post_update', kwargs={
+            'year': self.pub_date.year,
+            'month': self.pub_date.month,
+            'slug': self.slug,
+        })
+
     class Meta:
         verbose_name = 'blog post'
         ordering = ['-pub_date', 'title']

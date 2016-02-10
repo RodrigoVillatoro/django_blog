@@ -13,6 +13,9 @@ class Tag(models.Model):
     def get_absolute_url(self):
         return reverse('organizer_tag_detail', kwargs={'slug': self.slug})
 
+    def get_update_url(self):
+        return reverse('organizer_tag_update', kwargs={'slug': self.slug})
+
     class Meta:
         ordering = ['name']
 
@@ -33,6 +36,9 @@ class Startup(models.Model):
     def get_absolute_url(self):
         return reverse('organizer_startup_detail', kwargs={'slug': self.slug})
 
+    def get_update_url(self):
+        return reverse('organizer_startup_update', kwargs={'slug': self.slug})
+
     class Meta:
         ordering = ['name']
         get_latest_by = 'founded_date'
@@ -46,6 +52,14 @@ class NewsLink(models.Model):
 
     def __str__(self):
         return '{}:{}'.format(self.startup, self.title)
+
+    def get_absolute_url(self):
+        return self.startup.get_absolute_url()
+
+    def get_update_url(self):
+        return reverse('organizer_newslink_update', kwargs={
+            'pk': self.pk,
+        })
 
     class Meta:
         verbose_name = 'news article'
