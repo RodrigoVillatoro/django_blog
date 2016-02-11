@@ -16,6 +16,9 @@ class Tag(models.Model):
     def get_update_url(self):
         return reverse('organizer_tag_update', kwargs={'slug': self.slug})
 
+    def get_delete_url(self):
+        return reverse('organizer_tag_delete', kwargs={'slug': self.slug})
+
     class Meta:
         ordering = ['name']
 
@@ -39,6 +42,9 @@ class Startup(models.Model):
     def get_update_url(self):
         return reverse('organizer_startup_update', kwargs={'slug': self.slug})
 
+    def get_delete_url(self):
+        return reverse('organizer_startup_delete', kwargs={'slug': self.slug})
+
     class Meta:
         ordering = ['name']
         get_latest_by = 'founded_date'
@@ -58,6 +64,11 @@ class NewsLink(models.Model):
 
     def get_update_url(self):
         return reverse('organizer_newslink_update', kwargs={
+            'pk': self.pk,
+        })
+
+    def get_delete_url(self):
+        return reverse('organizer_newslink_delete', kwargs={
             'pk': self.pk,
         })
 

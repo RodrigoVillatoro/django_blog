@@ -51,7 +51,7 @@ class PostUpdate(View):
         post = self.get_object(year, month, slug)
         bound_form = self.form_class(request.POST, instance=post)
         if bound_form.is_valid():
-            new_post  = bound_form.save()
+            new_post = bound_form.save()
             return redirect(new_post)
         else:
             context = {
@@ -64,6 +64,18 @@ class PostUpdate(View):
         return get_object_or_404(self.model, pub_date__year=year,
                                  pub_date__month=month, slug=slug)
 
+
+class PostDelete(View):
+    def get(self, request, year, month, slug):
+        post = get_object_or_404(Post, pub_date__year=year,
+                                 pub_date__month=month, slug__iexact=slug)
+        return render(request, 'blog/post_confirm_delete.html', {'post': post})
+
+    def post(self, request, year, month, slug):
+        post = get_object_or_404(Post, pub_date__year=year,
+                                 pub_date__month=month, slug__iexact=slug)
+        post.delete()
+        return redirect('blog_post_list')
 
 class PostList(View):
     def get(self, request, parent_template=None):

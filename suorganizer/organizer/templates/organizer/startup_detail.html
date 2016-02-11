@@ -9,7 +9,14 @@
     <h2>{{ startup.name }}</h2>
     <ul>
       <li>
-        <a href="{{ startup.get_update_url }}">Edit Startup</a>
+        <a href="{{ startup.get_update_url }}">
+          Edit Startup
+        </a>
+      </li>
+      <li>
+        <a href="{{ startup.get_delete_url }}">
+          Delete Startup
+        </a>
       </li>
     </ul>
     <dl>
@@ -41,7 +48,14 @@
           {% for newslink in startup.newslink_set.all %}
             <ul>
               <li>
-                <a href="{{ newslink.get_update_url }}">Edit link</a>
+                <a href="{{ newslink.get_update_url }}">
+                  Edit link
+                </a>
+              </li>
+              <li>
+                <a href="{{ newslink.get_delete_url }}">
+                  Delete Link
+                </a>
               </li>
             </ul>
             <li>
