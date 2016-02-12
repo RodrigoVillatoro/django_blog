@@ -29,7 +29,7 @@ class ObjectUpdateMixin:
             'form': self.form_class(instance=obj),
             self.model.__name__.lower(): obj,
         }
-        return render(request. self.template_name, context)
+        return render(request, self.template_name, context)
 
     def post(self, request, slug):
         obj = get_object_or_404(self.model, slug__iexact=slug)

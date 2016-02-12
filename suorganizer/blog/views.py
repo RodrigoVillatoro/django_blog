@@ -77,6 +77,7 @@ class PostDelete(View):
         post.delete()
         return redirect('blog_post_list')
 
+
 class PostList(View):
     def get(self, request, parent_template=None):
         posts = Post.objects.all()
