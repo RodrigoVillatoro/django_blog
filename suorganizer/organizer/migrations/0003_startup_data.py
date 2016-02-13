@@ -117,8 +117,7 @@ def add_startup_data(apps, schema_editor):
         )
 
         for tag_slug in startup['tags']:
-            startup_object.tags.add(
-                Tag.objects.get(slug=tag_slug))
+            startup_object.tags.add(Tag.objects.get(slug=tag_slug))
 
 
 def remove_startup_data(apps, schema_editor):

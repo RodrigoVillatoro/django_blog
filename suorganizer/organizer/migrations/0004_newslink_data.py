@@ -37,7 +37,7 @@ def add_newslink_data(apps, schema_editor):
             title=newslink_dict['title'],
             link=newslink_dict['link'],
             pub_date=newslink_dict['pub_date'],
-            startup=Startup.object.get(slug=newslink_dict['startup'])
+            startup=Startup.objects.get(slug=newslink_dict['startup'])
         )
 
 
